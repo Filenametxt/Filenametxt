@@ -1,0 +1,59 @@
+<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #fe428e; }
+    .label { font: 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #a9fef7; }
+    .value { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #f8d866; }
+    .rank-text { font: bold 36px 'Segoe UI', Ubuntu, Sans-Serif; fill: #f8d866; text-anchor: middle; dominant-baseline: middle; }
+    .rank-circle { stroke: #fe428e; stroke-width: 4; fill: none; }
+    .rank-circle-bg { stroke: #fe428e; stroke-width: 4; stroke-opacity: 0.15; fill: none; }
+  </style>
+  
+  <rect x="0.5" y="0.5" width="494" height="194" rx="6" fill="#141321" stroke="#ffffff" />
+  
+  <text x="25" y="35" class="title">Fabio's GitHub Stats</text>
+  
+  <!-- Stats Groups -->
+  <g transform="translate(25, 50)">
+    <!-- Stars -->
+    <g transform="translate(0, 15)">
+      <path d="M8 .25a.75.75 0 00-1.22 0L4.85 4.1 1.05 4.65a.75.75 0 00-.42 1.28l2.75 2.68-.65 3.78a.75.75 0 001.09.79l3.4-1.78 3.4 1.78a.75.75 0 001.09-.79l-.65-3.78 2.75-2.68a.75.75 0 00-.42-1.28l-3.8-.55L8 .25z" fill="#fe428e" transform="translate(0, -1)" />
+      <text x="25" y="10" class="label">Total Stars:</text>
+      <text x="170" y="10" class="value">4</text>
+    </g>
+    
+    <!-- Commits -->
+    <g transform="translate(0, 40)">
+      <path d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z M8 1a7 7 0 100 14A7 7 0 008 1zM8 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9z" fill="#fe428e" transform="scale(0.9) translate(0, -1)" />
+      <text x="25" y="10" class="label">Total Commits:</text>
+      <text x="170" y="10" class="value">142</text>
+    </g>
+    
+    <!-- PRs -->
+    <g transform="translate(0, 65)">
+      <path d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v5.256a2.251 2.251 0 101.5 0V5.372zm8-.5a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM11.5 7a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5zM5 11.5a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm8 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" fill="#fe428e" transform="scale(0.9) translate(0, -1)" />
+      <text x="25" y="10" class="label">Total PRs:</text>
+      <text x="170" y="10" class="value">2</text>
+    </g>
+    
+    <!-- Issues -->
+    <g transform="translate(0, 90)">
+      <path d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12zM7.25 5h1.5v4.5h-1.5V5zm0 6h1.5v1.5h-1.5V11z" fill="#fe428e" transform="scale(0.9) translate(0, -1)" />
+      <text x="25" y="10" class="label">Total Issues:</text>
+      <text x="170" y="10" class="value">2</text>
+    </g>
+    
+    <!-- Contributed to -->
+    <g transform="translate(0, 115)">
+      <path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM4.5 12.25a.25.25 0 00-.25.25v.25h8v-.25a.25.25 0 00-.25-.25h-7.5z" fill="#fe428e" transform="scale(0.9) translate(0, -1)" />
+      <text x="25" y="10" class="label">Contributed to:</text>
+      <text x="170" y="10" class="value">0</text>
+    </g>
+  </g>
+  
+  <!-- Rank Circle Graphic -->
+  <g transform="translate(390, 115)">
+    <circle cx="0" cy="0" r="40" class="rank-circle-bg" />
+    <circle cx="0" cy="0" r="40" class="rank-circle" stroke-dasharray="251.2" stroke-dashoffset="227.75990144860393" transform="rotate(-90)" />
+    <text x="0" y="0" class="rank-text" dominant-baseline="central" alignment-baseline="central" text-anchor="middle">C</text>
+  </g>
+</svg>

@@ -20,8 +20,8 @@
 Here is the list of projects I am working on:
 
 ### 🌐 Public Projects (Top 3 Recent)
-- 🌐 [GymFly](https://github.com/Filenametxt/GymFly) — *No description provided.* (41 commits)
 - 🌐 [Filenametxt](https://github.com/Filenametxt/Filenametxt) — *Profile description repo* (2 commits)
+- 🌐 [GymFly](https://github.com/Filenametxt/GymFly) — *No description provided.* (41 commits)
 - 🌐 [bank-ml-classifier](https://github.com/Filenametxt/bank-ml-classifier) — *The classification goal is to predict if the client will subscribe (yes/no) a term deposit (variable y).* (21 commits)
 
 ### 🔒 Private Projects (Top 3 Recent)
@@ -31,4 +31,4 @@ Here is the list of projects I am working on:
 
 ---
 
-*This README updates automatically via GitHub Actions.* 
+*This README updates automatically via GitHub Actions.*

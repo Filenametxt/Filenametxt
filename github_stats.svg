@@ -25,7 +25,7 @@
     <g transform="translate(0, 40)">
       <path d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z M8 1a7 7 0 100 14A7 7 0 008 1zM8 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9z" fill="#fe428e" transform="scale(0.9) translate(0, -1)" />
       <text x="25" y="10" class="label">Total Commits:</text>
-      <text x="170" y="10" class="value">165</text>
+      <text x="170" y="10" class="value">166</text>
     </g>
     
     <!-- PRs -->
@@ -53,7 +53,7 @@
   <!-- Rank Circle Graphic -->
   <g transform="translate(390, 115)">
     <circle cx="0" cy="0" r="40" class="rank-circle-bg" />
-    <circle cx="0" cy="0" r="40" class="rank-circle" stroke-dasharray="251.2" stroke-dashoffset="222.28465273631787" transform="rotate(-90)" />
+    <circle cx="0" cy="0" r="40" class="rank-circle" stroke-dasharray="251.2" stroke-dashoffset="222.2587781514832" transform="rotate(-90)" />
     <text x="0" y="0" class="rank-text" dominant-baseline="central" alignment-baseline="central" text-anchor="middle">C</text>
   </g>
 </svg>

@@ -25,14 +25,14 @@
     <g transform="translate(0, 40)">
       <path d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z M8 1a7 7 0 100 14A7 7 0 008 1zM8 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9z" fill="#fe428e" transform="scale(0.9) translate(0, -1)" />
       <text x="25" y="10" class="label">Total Commits:</text>
-      <text x="170" y="10" class="value">268</text>
+      <text x="170" y="10" class="value">281</text>
     </g>
     
     <!-- PRs -->
     <g transform="translate(0, 65)">
       <path d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v5.256a2.251 2.251 0 101.5 0V5.372zm8-.5a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM11.5 7a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5zM5 11.5a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm8 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" fill="#fe428e" transform="scale(0.9) translate(0, -1)" />
       <text x="25" y="10" class="label">Total PRs:</text>
-      <text x="170" y="10" class="value">25</text>
+      <text x="170" y="10" class="value">27</text>
     </g>
     
     <!-- Issues -->
@@ -53,7 +53,7 @@
   <!-- Rank Circle Graphic -->
   <g transform="translate(390, 115)">
     <circle cx="0" cy="0" r="40" class="rank-circle-bg" />
-    <circle cx="0" cy="0" r="40" class="rank-circle" stroke-dasharray="251.2" stroke-dashoffset="207.91032180277395" transform="rotate(-90)" />
+    <circle cx="0" cy="0" r="40" class="rank-circle" stroke-dasharray="251.2" stroke-dashoffset="206.3841358142432" transform="rotate(-90)" />
     <text x="0" y="0" class="rank-text" dominant-baseline="central" alignment-baseline="central" text-anchor="middle">C+</text>
   </g>
 </svg>

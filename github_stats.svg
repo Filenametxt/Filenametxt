@@ -39,7 +39,7 @@
     <g transform="translate(0, 90)">
       <path d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12zM7.25 5h1.5v4.5h-1.5V5zm0 6h1.5v1.5h-1.5V11z" fill="#fe428e" transform="scale(0.9) translate(0, -1)" />
       <text x="25" y="10" class="label">Total Issues:</text>
-      <text x="170" y="10" class="value">8</text>
+      <text x="170" y="10" class="value">9</text>
     </g>
     
     <!-- Contributed to -->
@@ -53,7 +53,7 @@
   <!-- Rank Circle Graphic -->
   <g transform="translate(390, 115)">
     <circle cx="0" cy="0" r="40" class="rank-circle-bg" />
-    <circle cx="0" cy="0" r="40" class="rank-circle" stroke-dasharray="251.2" stroke-dashoffset="203.15851646059656" transform="rotate(-90)" />
+    <circle cx="0" cy="0" r="40" class="rank-circle" stroke-dasharray="251.2" stroke-dashoffset="202.69996555728022" transform="rotate(-90)" />
     <text x="0" y="0" class="rank-text" dominant-baseline="central" alignment-baseline="central" text-anchor="middle">C+</text>
   </g>
 </svg>

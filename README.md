@@ -25,7 +25,7 @@ Here is the list of projects I am working on:
 - 🌐 [bank-ml-classifier](https://github.com/Filenametxt/bank-ml-classifier) — *The classification goal is to predict if the client will subscribe (yes/no) a term deposit (variable y).* (21 commits)
 
 ### 🔒 Private Projects (Top 3 Recent)
-- 🔒 **BT_FabioAngelucci** (25 commits)
+- 🔒 **BT_FabioAngelucci** (27 commits)
 - 🔒 **sql_injection_test_php** (3 commits)
 - 🔒 **Rust_on_MicroBlaze-Arty_template** (8 commits)
 

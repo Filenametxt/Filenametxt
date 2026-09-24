@@ -13,18 +13,18 @@
   <g transform="translate(25, 32)">
     <path d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z M8 1a7 7 0 100 14A7 7 0 008 1zM8 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9z" fill="#03d162" transform="translate(0, -12) scale(1.1)" />
     <text x="25" y="0" fill="#ffffff" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Commit Activity (Last 12 Months)</text>
-    <text x="765" y="0" fill="#8b949e" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">Total: <tspan fill="#03d162" font-weight="bold">220</tspan> commits</text>
+    <text x="765" y="0" fill="#8b949e" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">Total: <tspan fill="#03d162" font-weight="bold">329</tspan> commits</text>
   </g>
 
   <!-- Grid & Axes -->
   <line x1="50" y1="200.0" x2="785" y2="200.0" stroke="#21262d" stroke-dasharray="3 3" />
 <text x="40" y="204.0" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">0</text>
 <line x1="50" y1="153.8" x2="785" y2="153.8" stroke="#21262d" stroke-dasharray="3 3" />
-<text x="40" y="157.8" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">55</text>
+<text x="40" y="157.8" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">60</text>
 <line x1="50" y1="107.6" x2="785" y2="107.6" stroke="#21262d" stroke-dasharray="3 3" />
-<text x="40" y="111.6" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">110</text>
+<text x="40" y="111.6" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">120</text>
 <line x1="50" y1="60.0" x2="785" y2="60.0" stroke="#21262d" stroke-dasharray="3 3" />
-<text x="40" y="64.0" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">167</text>
+<text x="40" y="64.0" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">182</text>
 
   <text x="50.0" y="220" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">Oct 25</text>
 <text x="116.8" y="220" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">Nov 25</text>
@@ -41,8 +41,8 @@
 
 
   <!-- Area Fill & Line Chart -->
-  <path d="M 50.0 200.0 C 63.4 200.0, 90.1 200.0, 116.8 200.0 C 143.5 200.0, 156.9 200.0, 183.6 200.0 C 210.4 200.0, 223.7 200.0, 250.5 200.0 C 277.2 200.0, 290.5 200.0, 317.3 200.0 C 344.0 198.7, 357.4 193.3, 384.1 193.3 C 410.8 193.3, 424.2 200.0, 450.9 200.0 C 477.6 197.7, 491.0 188.4, 517.7 181.6 C 544.5 174.7, 557.8 185.6, 584.5 165.6 C 611.3 145.7, 624.6 74.9, 651.4 81.8 C 678.1 88.7, 691.5 177.7, 718.2 200.0 C 744.9 200.0, 771.6 194.6, 785.0 193.3 L 785.0 200.0 L 50.0 200.0 Z" fill="url(#activityGrad)" />
-  <path d="M 50.0 200.0 C 63.4 200.0, 90.1 200.0, 116.8 200.0 C 143.5 200.0, 156.9 200.0, 183.6 200.0 C 210.4 200.0, 223.7 200.0, 250.5 200.0 C 277.2 200.0, 290.5 200.0, 317.3 200.0 C 344.0 198.7, 357.4 193.3, 384.1 193.3 C 410.8 193.3, 424.2 200.0, 450.9 200.0 C 477.6 197.7, 491.0 188.4, 517.7 181.6 C 544.5 174.7, 557.8 185.6, 584.5 165.6 C 611.3 145.7, 624.6 74.9, 651.4 81.8 C 678.1 88.7, 691.5 177.7, 718.2 200.0 C 744.9 200.0, 771.6 194.6, 785.0 193.3" fill="none" stroke="#03d162" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 50.0 200.0 C 63.4 200.0, 90.1 200.0, 116.8 200.0 C 143.5 200.0, 156.9 200.0, 183.6 200.0 C 210.4 200.0, 223.7 200.0, 250.5 200.0 C 277.2 200.0, 290.5 200.0, 317.3 200.0 C 344.0 198.8, 357.4 195.5, 384.1 193.8 C 410.8 192.2, 424.2 194.5, 450.9 191.5 C 477.6 188.6, 491.0 184.5, 517.7 179.2 C 544.5 174.0, 557.8 184.9, 584.5 165.4 C 611.3 145.8, 624.6 75.8, 651.4 81.5 C 678.1 87.2, 691.5 173.2, 718.2 193.8 C 744.9 200.0, 771.6 186.5, 785.0 184.6 L 785.0 200.0 L 50.0 200.0 Z" fill="url(#activityGrad)" />
+  <path d="M 50.0 200.0 C 63.4 200.0, 90.1 200.0, 116.8 200.0 C 143.5 200.0, 156.9 200.0, 183.6 200.0 C 210.4 200.0, 223.7 200.0, 250.5 200.0 C 277.2 200.0, 290.5 200.0, 317.3 200.0 C 344.0 198.8, 357.4 195.5, 384.1 193.8 C 410.8 192.2, 424.2 194.5, 450.9 191.5 C 477.6 188.6, 491.0 184.5, 517.7 179.2 C 544.5 174.0, 557.8 184.9, 584.5 165.4 C 611.3 145.8, 624.6 75.8, 651.4 81.5 C 678.1 87.2, 691.5 173.2, 718.2 193.8 C 744.9 200.0, 771.6 186.5, 785.0 184.6" fill="none" stroke="#03d162" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
 
   <!-- Data Points -->
   <circle cx="50.0" cy="200.0" r="2.5" fill="#30363d" />
@@ -50,17 +50,19 @@
 <circle cx="183.6" cy="200.0" r="2.5" fill="#30363d" />
 <circle cx="250.5" cy="200.0" r="2.5" fill="#30363d" />
 <circle cx="317.3" cy="200.0" r="2.5" fill="#30363d" />
-<circle cx="384.1" cy="193.3" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
-<text x="384.1" y="183.3" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">8</text>
-<circle cx="450.9" cy="200.0" r="2.5" fill="#30363d" />
-<circle cx="517.7" cy="181.6" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
-<text x="517.7" y="171.6" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">22</text>
-<circle cx="584.5" cy="165.6" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
-<text x="584.5" y="155.6" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">41</text>
-<circle cx="651.4" cy="81.8" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
-<text x="651.4" y="71.8" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">141</text>
-<circle cx="718.2" cy="200.0" r="2.5" fill="#30363d" />
-<circle cx="785.0" cy="193.3" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
-<text x="785.0" y="183.3" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">8</text>
+<circle cx="384.1" cy="193.8" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
+<text x="384.1" y="183.8" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">8</text>
+<circle cx="450.9" cy="191.5" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
+<text x="450.9" y="181.5" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">11</text>
+<circle cx="517.7" cy="179.2" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
+<text x="517.7" y="169.2" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">27</text>
+<circle cx="584.5" cy="165.4" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
+<text x="584.5" y="155.4" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">45</text>
+<circle cx="651.4" cy="81.5" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
+<text x="651.4" y="71.5" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">154</text>
+<circle cx="718.2" cy="193.8" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
+<text x="718.2" y="183.8" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">8</text>
+<circle cx="785.0" cy="184.6" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />
+<text x="785.0" y="174.6" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">20</text>
 
 </svg>

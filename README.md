@@ -1,5 +1,5 @@
 ## 📊 GitHub Activity
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Filenametxt&bg_color=0D1117&color=ffffff&line=03d162&point=ffffff&area=true&hide_border=true)
+![Commit Activity](commit_activity.svg)
 
 ---
 
@@ -12,9 +12,7 @@ Here is the list of projects I am working on:
 - 🌐 [bank-ml-classifier](https://github.com/Filenametxt/bank-ml-classifier) — *The classification goal is to predict if the client will subscribe (yes/no) a term deposit (variable y).* (21 commits)
 
 ### 🔒 Private Projects (Top 3 Recent)
-- 🔒 **BT_FabioAngelucci** (41 commits)
-- 🔒 **sql_injection_test_php** (3 commits)
-- 🔒 **Rust_on_MicroBlaze-Arty_template** (8 commits)
+*[Configure a GH_PAT token to view private projects]*
 
 ---
 

@@ -37,6 +37,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          # Esegue il commit solo se il file README.md ha subito modifiche
-          git diff-index --quiet HEAD || (git commit -m "docs: update README.md [skip ci]" && git push)
+          git add README.md commit_activity.svg
+          # Esegue il commit solo se i file hanno subito modifiche
+          git diff-index --quiet HEAD || (git commit -m "docs: update profile activity and projects [skip ci]" && git push)

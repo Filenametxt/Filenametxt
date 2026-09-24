@@ -1,5 +1,5 @@
 ## 📊 GitHub Activity
-![Commit Activity](commit_activity.svg)
+![Commit Activity](commit_activity.svg?v=1790241030)
 
 ---
 

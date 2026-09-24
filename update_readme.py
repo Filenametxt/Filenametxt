@@ -261,9 +261,11 @@ def update_readme():
     with open("commit_activity.svg", "w", encoding="utf-8") as f:
         f.write(svg_activity)
 
+    cache_buster = int(datetime.datetime.now().timestamp())
+
     # Template del README.md con solo il grafico dei commit di GitHub e i progetti
     readme_template = f"""## 📊 GitHub Activity
-![Commit Activity](commit_activity.svg)
+![Commit Activity](commit_activity.svg?v={cache_buster})
 
 ---
 

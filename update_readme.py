@@ -3,6 +3,8 @@ import re
 import urllib.request
 import urllib.parse
 import json
+import datetime
+from collections import Counter
 
 # GitHub Configuration
 USERNAME = "Filenametxt"
@@ -52,89 +54,51 @@ def get_repositories():
         
     return repos
 
-def get_commit_count(repo_name):
-    url = f"https://api.github.com/repos/{USERNAME}/{repo_name}/commits?author={USERNAME}&per_page=1"
-    data, headers = make_request(url)
-    if not data:
-        return 0
-    
-    link_header = headers.get("Link")
-    if link_header:
-        match = re.search(r'page=(\d+)>; rel="last"', link_header)
-        if match:
-            return int(match.group(1))
-            
-    try:
-        commits = json.loads(data.decode('utf-8'))
-        return len(commits) if isinstance(commits, list) else 0
-    except Exception:
-        return 0
+def get_repo_commits(repo_name):
+    commits_dates = []
+    page = 1
+    while True:
+        url = f"https://api.github.com/repos/{USERNAME}/{repo_name}/commits?author={USERNAME}&per_page=100&page={page}"
+        data, _ = make_request(url)
+        if not data:
+            break
+        try:
+            commits = json.loads(data.decode('utf-8'))
+            if not commits or not isinstance(commits, list):
+                break
+            for c in commits:
+                author_date = c.get('commit', {}).get('author', {}).get('date', '')
+                if author_date:
+                    commits_dates.append(author_date[:7]) # 'YYYY-MM'
+            if len(commits) < 100:
+                break
+            page += 1
+        except Exception:
+            break
+    return commits_dates
 
-import datetime
-
-def get_contribution_calendar():
-    if not TOKEN:
-        return None
-    url = "https://api.github.com/graphql"
-    query = """
-    query($login: String!) {
-      user(login: $login) {
-        contributionsCollection {
-          contributionCalendar {
-            totalContributions
-            weeks {
-              contributionDays {
-                date
-                contributionCount
-              }
-            }
-          }
-        }
-      }
-    }
-    """
-    data_payload = json.dumps({"query": query, "variables": {"login": USERNAME}}).encode('utf-8')
-    req = urllib.request.Request(
-        url,
-        data=data_payload,
-        headers={
-            "Authorization": f"bearer {TOKEN}",
-            "User-Agent": "Filenametxt-README-Updater",
-            "Content-Type": "application/json"
-        }
-    )
-    try:
-        with urllib.request.urlopen(req) as resp:
-            data = json.loads(resp.read().decode('utf-8'))
-            return data.get("data", {}).get("user", {}).get("contributionsCollection", {}).get("contributionCalendar")
-    except Exception as e:
-        print(f"GraphQL request error: {e}")
-        return None
-
-def generate_activity_svg(days_data):
-    # days_data: list of (date_str 'YYYY-MM-DD', count)
+def generate_activity_svg(monthly_data, total_commits):
+    # monthly_data: list of (key 'YYYY-MM', label 'Mon', count)
     width = 820
     height = 240
     pad_left = 50
-    pad_right = 30
+    pad_right = 35
     pad_top = 60
     pad_bottom = 40
     
     chart_w = width - pad_left - pad_right
     chart_h = height - pad_top - pad_bottom
     
-    counts = [c for _, c in days_data]
-    total_period = sum(counts)
+    counts = [c for _, _, c in monthly_data]
     max_count = max(counts) if counts and max(counts) > 0 else 1
-    # Ensure a nice ceiling
-    y_max = max(max_count, 5)
+    y_max = max(max_count + int(max_count * 0.15) + 5, 10)
     
-    n = len(days_data)
+    n = len(monthly_data)
     points = []
-    for i, (d, count) in enumerate(days_data):
+    for i, (key, label, count) in enumerate(monthly_data):
         x = pad_left + (i * chart_w / (n - 1 if n > 1 else 1))
         y = pad_top + chart_h - (count / y_max * chart_h)
-        points.append((x, y, d, count))
+        points.append((x, y, label, count))
         
     # Build bezier curve path
     if len(points) == 1:
@@ -147,10 +111,13 @@ def generate_activity_svg(days_data):
             p2 = points[i + 1]
             p3 = points[i + 2] if i + 2 < len(points) else p2
             
-            cp1x = p1[0] + (p2[0] - p0[0]) / 6.0
-            cp1y = p1[1] + (p2[1] - p0[1]) / 6.0
-            cp2x = p2[0] - (p3[0] - p1[0]) / 6.0
-            cp2y = p2[1] - (p3[1] - p1[1]) / 6.0
+            cp1x = p1[0] + (p2[0] - p0[0]) / 5.0
+            cp1y = p1[1] + (p2[1] - p0[1]) / 5.0
+            cp2x = p2[0] - (p3[0] - p1[0]) / 5.0
+            cp2y = p2[1] - (p3[1] - p1[1]) / 5.0
+            
+            cp1y = min(cp1y, pad_top + chart_h)
+            cp2y = min(cp2y, pad_top + chart_h)
             
             line_d += f" C {cp1x:.1f} {cp1y:.1f}, {cp2x:.1f} {cp2y:.1f}, {p2[0]:.1f} {p2[1]:.1f}"
             
@@ -159,30 +126,22 @@ def generate_activity_svg(days_data):
     
     # Grid lines & Y labels
     grid_svg = ""
-    for steps in [0, 0.5, 1.0]:
+    for steps in [0, 0.33, 0.66, 1.0]:
         val = int(y_max * steps)
         gy = pad_top + chart_h - (steps * chart_h)
         grid_svg += f'<line x1="{pad_left}" y1="{gy:.1f}" x2="{width - pad_right}" y2="{gy:.1f}" stroke="#21262d" stroke-dasharray="3 3" />\n'
         grid_svg += f'<text x="{pad_left - 10}" y="{gy + 4:.1f}" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">{val}</text>\n'
         
-    # X labels & points
+    # X labels & data points
     x_labels_svg = ""
-    step_label = max(1, n // 6)
-    for i, (px, py, d, count) in enumerate(points):
-        if i % step_label == 0 or i == n - 1:
-            try:
-                dt = datetime.datetime.strptime(d, "%Y-%m-%d")
-                formatted_d = dt.strftime("%d %b")
-            except Exception:
-                formatted_d = d[-5:]
-            x_labels_svg += f'<text x="{px:.1f}" y="{bottom_y + 20}" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">{formatted_d}</text>\n'
-            
     points_svg = ""
-    for px, py, d, count in points:
+    for px, py, label, count in points:
+        x_labels_svg += f'<text x="{px:.1f}" y="{bottom_y + 20}" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">{label}</text>\n'
         if count > 0:
-            points_svg += f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />\n'
+            points_svg += f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4.5" fill="#ffffff" stroke="#03d162" stroke-width="2.5" />\n'
+            points_svg += f'<text x="{px:.1f}" y="{py - 10:.1f}" fill="#03d162" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">{count}</text>\n'
         else:
-            points_svg += f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2" fill="#30363d" />\n'
+            points_svg += f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2.5" fill="#30363d" />\n'
             
     svg_content = f"""<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -198,8 +157,8 @@ def generate_activity_svg(days_data):
   <!-- Header -->
   <g transform="translate(25, 32)">
     <path d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z M8 1a7 7 0 100 14A7 7 0 008 1zM8 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9z" fill="#03d162" transform="translate(0, -12) scale(1.1)" />
-    <text x="25" y="0" fill="#ffffff" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Commit Activity (Last 30 Days)</text>
-    <text x="{width - 55}" y="0" fill="#8b949e" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">Total: <tspan fill="#03d162" font-weight="bold">{total_period}</tspan> commits</text>
+    <text x="25" y="0" fill="#ffffff" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Commit Activity (Last 12 Months)</text>
+    <text x="{width - 55}" y="0" fill="#8b949e" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">Total: <tspan fill="#03d162" font-weight="bold">{total_commits}</tspan> commits</text>
   </g>
 
   <!-- Grid & Axes -->
@@ -220,6 +179,7 @@ def update_readme():
     
     public_repos_data = []
     private_repos_data = []
+    all_commit_dates = []
     
     for repo in repos:
         if repo.get('fork'):
@@ -230,13 +190,15 @@ def update_readme():
         is_private = repo.get('private', False)
         pushed_at = repo.get('pushed_at', '')
         
-        # Ottieni i commit dell'utente per questo repository
-        commits = get_commit_count(name)
+        # Ottieni tutti i commit dell'utente per questo repository
+        repo_commit_dates = get_repo_commits(name)
+        commits_count = len(repo_commit_dates)
+        all_commit_dates.extend(repo_commit_dates)
         
         repo_info = {
             'name': name,
             'description': description,
-            'commits': commits,
+            'commits': commits_count,
             'pushed_at': pushed_at,
             'url': repo.get('html_url')
         }
@@ -273,24 +235,27 @@ def update_readme():
     else:
         private_list_str = "*No private projects found.*"
 
-    # Generazione dei dati di commit per il grafico dell'attività (ultimi 30 giorni)
-    days_data = []
-    calendar = get_contribution_calendar()
-    if calendar and "weeks" in calendar:
-        all_days = []
-        for week in calendar["weeks"]:
-            for day in week.get("contributionDays", []):
-                all_days.append((day["date"], day["contributionCount"]))
-        # Prendi gli ultimi 30 giorni
-        days_data = all_days[-30:] if len(all_days) >= 30 else all_days
-    else:
-        today = datetime.date.today()
-        for i in range(29, -1, -1):
-            d_str = (today - datetime.timedelta(days=i)).strftime("%Y-%m-%d")
-            days_data.append((d_str, 0))
+    # Calcolo dell'attività mensile per gli ultimi 12 mesi
+    today = datetime.date.today()
+    monthly_data = []
+    from collections import Counter
+    commit_counter = Counter(all_commit_dates)
+    
+    for i in range(11, -1, -1):
+        year = today.year
+        month = today.month - i
+        while month <= 0:
+            month += 12
+            year -= 1
+        key = f"{year:04d}-{month:02d}"
+        label = datetime.date(year, month, 1).strftime("%b %y")
+        count = commit_counter.get(key, 0)
+        monthly_data.append((key, label, count))
+
+    total_commits = len(all_commit_dates)
 
     # Genera e scrivi il file SVG dell'attività
-    svg_activity = generate_activity_svg(days_data)
+    svg_activity = generate_activity_svg(monthly_data, total_commits)
     with open("commit_activity.svg", "w", encoding="utf-8") as f:
         f.write(svg_activity)
 

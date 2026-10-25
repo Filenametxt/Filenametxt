@@ -12,9 +12,9 @@ Here is the list of projects I am working on:
 - 🌐 [GymFly](https://github.com/Filenametxt/GymFly) — *Gestionale palestra: architettura a 4 livelli, PHP, Smarty e persistenza via Doctrine.* (188 commits)
 
 ### 🔒 Private Projects (Top 3 Recent)
+- 🔒 **Fpga_emu** (14 commits)
 - 🔒 **immich-gemma-bridge** (0 commits)
 - 🔒 **opencode-local-agents** (21 commits)
-- 🔒 **BT_FabioAngelucci** (43 commits)
 
 ---
 

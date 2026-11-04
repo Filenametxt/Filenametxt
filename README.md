@@ -12,9 +12,9 @@ Here is the list of projects I am working on:
 - 🌐 [GymFly](https://github.com/Filenametxt/GymFly) — *Gestionale palestra: architettura a 4 livelli, PHP, Smarty e persistenza via Doctrine.* (188 commits)
 
 ### 🔒 Private Projects (Top 3 Recent)
+- 🔒 **nettop-gui** (3 commits)
+- 🔒 **nettop-core** (2 commits)
 - 🔒 **plasma-applet-nettop** (1 commits)
-- 🔒 **nettop-gui** (1 commits)
-- 🔒 **nettop-core** (1 commits)
 
 ---
 
